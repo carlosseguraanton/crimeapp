@@ -5,6 +5,7 @@
 </script>
 <script type="text/javascript">
 var map;
+var marker;
 function initialize() {
 var mapOptions = {
 center: new google.maps.LatLng(37.360216, -5.965010), zoom: 15
@@ -15,10 +16,14 @@ placeMarker(event.latLng);
 });
 }
 function placeMarker(location){
-var marker = new google.maps.Marker({
-  position: location,
-  map: map
-});
+  if (marker) {
+    marker.setPosition(location);
+  } else {
+    marker = new google.maps.Marker({
+        position: location,
+        map: map
+  }); 
+  }
 }
 </script>
 </head>
