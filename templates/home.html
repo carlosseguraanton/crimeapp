@@ -4,11 +4,21 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu8gtvXNljIn6H0kBIlBUTdrD3oDLYgdw&callback=initialize" type="text/javascript">
 </script>
 <script type="text/javascript">
+var map;
 function initialize() {
 var mapOptions = {
 center: new google.maps.LatLng(37.360216, -5.965010), zoom: 15
 };
-var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+google.maps.event.addListener(map,'click',function(event){
+placeMarker(event.latLng);
+});
+}
+function placeMarker(location){
+var marker = new google.maps.Marker({
+  position: location,
+  map: map
+});
 }
 </script>
 </head>
