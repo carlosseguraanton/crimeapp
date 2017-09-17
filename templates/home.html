@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+ <meta charset="iso-8859-1">
  <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}" />
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu8gtvXNljIn6H0kBIlBUTdrD3oDLYgdw&callback=initialize" type="text/javascript">
 </script>
@@ -15,6 +16,16 @@ map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 google.maps.event.addListener(map,'click',function(event){
 placeMarker(event.latLng);
 });
+placeCrimes({{crimes | safe}});
+}
+function placeCrimes(crimes) {
+  for(i=0; i<crimes.length; i++) {
+    crime = new google.maps.Marker({
+      position: new google.maps.LatLng(crimes[i].latitude, crimes[i].longitude),
+      map: map,
+      title: crimes[i].date + "\n" + crimes[i].category + "\n" + crimes[i].description
+    });
+  }
 }
 function placeMarker(location){
   if (marker) {
@@ -32,7 +43,7 @@ function placeMarker(location){
 </head>
 <body onload="initialize()">
 <h1>CrimeMap</h1>
-<p>A map of recent criminal activity in the Poligono Sur area.</p>
+<p>A map of recent criminal activity in the Polígono Sur area.</p>
 <div id="map-canvas"></div>
 
 <div id="newcrimeform">
