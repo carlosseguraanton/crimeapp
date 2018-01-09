@@ -3,7 +3,7 @@ Este proyecto es una aplicación que registra crimenes, dónde suceden, cuando s
 
 Puedes crear un entorno virtual con virtualenv [nombredelentornovirtualquemásteguste]
 
-Para acceder al entorno virtual de python creado ejecutamos source env/bin/activate
+Para acceder al entorno virtual de python creado ejecutamos source nombredelentornovirtualquemásteguste/bin/activate
 
 Este proyecto presenta tres dependencias:
 
@@ -15,7 +15,6 @@ pip install pymysql
 
 La tercera es datetime:
 pip install datetime
-
 
 Secuencia de instalación del proyecto:
 
@@ -30,5 +29,5 @@ Para ejecutar usamos python db_setup.py
 
 Ejecutamos la aplicación con python crimemap.py
 
-Si necesitas que la petición venga por cualquier interfaz añade host='0.0.0.0' en el método clear después dede el parametro port=5300 y antes del parámetro
+Si necesitas que la petición venga por cualquier interfaz añade host='0.0.0.0' en el método clear después del parametro port=5300 y antes del parámetro posterior
 
